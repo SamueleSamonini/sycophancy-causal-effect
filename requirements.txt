@@ -1,0 +1,18 @@
+# Core ML
+torch>=2.0
+transformers>=4.40
+accelerate>=0.30
+datasets>=2.14
+
+# Data handling
+pandas>=2.0
+numpy>=1.24
+tqdm>=4.65
+
+# Statistical analysis (used in later phases)
+scipy>=1.11
+statsmodels>=0.14
+
+# Visualization (used in later phases)
+matplotlib>=3.7
+seaborn>=0.13
