@@ -84,13 +84,20 @@ class ModelScorer:
         cache_dir: Optional[str] = None,
         dtype: torch.dtype = torch.float16,
     ) -> "ModelScorer":
-        """Load a model and its tokenizer in fp16 with automatic device mapping."""
+        """
+        Load a model and its tokenizer in fp16 with automatic device mapping.
+        
+        Uses low_cpu_mem_usage=True to load weights directly onto the GPU without
+        an intermediate full copy in CPU RAM, which is critical on Colab Free
+        (~12 GB RAM) when loading multiple models in sequence.
+        """
         tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             torch_dtype=dtype,
             device_map="auto",
             cache_dir=cache_dir,
+            low_cpu_mem_usage=True,
         )
         return cls(name=model_name, model=model, tokenizer=tokenizer)
 
