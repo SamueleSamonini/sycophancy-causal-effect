@@ -52,12 +52,11 @@ sycophancy-causal-effect/
 │   └── 02_analysis.ipynb        ← analysis notebook (run locally, no GPU needed)
 │
 ├── results/                     ← experiment outputs (committed for reproducibility)
-│   ├── pilot_qwen_n30.csv                    (initial single-family pilot, n=30)
-│   ├── pilot_multifamily_n30.csv             (multi-family pilot, n=30)
 │   ├── main_multifamily_n300.csv             ← main experiment (300 × 4 × 6 = 7200 rows)
+│   ├── main_multifamily_n300.json            ← same data, JSON format
+│   ├── agg_mean_pagree.csv                   (aggregated descriptive stats)
 │   ├── stats_per_family_level.csv            (paired t-tests + bootstrap CIs)
-│   ├── stats_per_category_family_L3.csv      (per-category breakdown at L3)
-│   └── agg_mean_pagree.csv                   (aggregated descriptive stats)
+│   └── stats_per_category_family_L3.csv      (per-category breakdown at L3)
 │
 ├── figures/                     ← all plots used in the paper, as PDFs
 │   ├── fig1_forest_ATE.pdf
@@ -142,7 +141,7 @@ Then open `notebooks/02_analysis.ipynb` in VS Code (or Jupyter) with a **local P
 
 ## AI Usage Disclaimer
 
-Parts of this project have been developed with the assistance of **Anthropic's Claude (Sonnet 4.5)**. The AI was used as a pair-programming and methodological-design partner across the following dimensions:
+Parts of this project have been developed with the assistance of **Anthropic's Claude (Opus 4.7)**. The AI was used as a pair-programming and methodological-design partner across the following dimensions:
 
 - discussion and selection of the research question among the proposed thematic clusters
 - design of the experimental pipeline (logit-based scoring, four-level premise-strength moderator, cross-family replication strategy)
